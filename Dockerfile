@@ -1,13 +1,15 @@
-# Базовый образ n8n
-FROM n8nio/n8n:latest
+FROM n8nio/n8n
 
-# Установка Python и pip (для обработки CSV, если нужно)
-USER root
-RUN apk add --no-cache python3 py3-pip
+# Указываем порт
+ENV N8N_PORT=5678
 
-# Копируем базу знаний и скрипты внутрь контейнера
-COPY ./data /data
-COPY ./bots /bots
+# Включаем базовую авторизацию
+ENV N8N_BASIC_AUTH_ACTIVE=true
+ENV N8N_BASIC_AUTH_USER=admin
+ENV N8N_BASIC_AUTH_PASSWORD=admin123
 
-# Возвращаемся к пользователю n8n
-USER node
+# Указываем публичный адрес, который выдаёт Render
+ENV N8N_WEBHOOK_URL=https://n8n-real-estate-assistant.onrender.com
+
+# Запускаем n8n
+CMD ["n8n"]
