@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: n8n-real-estate-assistant
+    env: docker
+    repo: https://github.com/Alenota/n8n-real-estate-assistant
+    branch: main
+    dockerfilePath: Dockerfile
+    plan: free
+    autoDeploy: true
+    envVars:
+      - key: N8N_BASIC_AUTH_USER
+        value: admin
+      - key: N8N_BASIC_AUTH_PASSWORD
+        value: supersecret
+      - key: TELEGRAM_TOKEN
+        value: 7818269690:AAEhk9eVkfmrPor3vEG0uaFZFoH3KBGcwDo
+      - key: TELEGRAM_CHAT_ID
+        value: 6423784583
+      - key: OPENROUTER_API_KEY
+        value: 🔑_сюда_вставь_свой_ключ
+      - key: N8N_HOST
+        value: 0.0.0.0
+      - key: N8N_PORT
+        value: 5678
+      - key: N8N_PROTOCOL
+        value: http
+      - key: WEBHOOK_TUNNEL_URL
+        value: https://n8n-real-estate-assistant.onrender.com
