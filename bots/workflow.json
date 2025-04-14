@@ -1,0 +1,20 @@
+{
+  "name": "RAG Real Estate Assistant",
+  "nodes": [
+    {
+      "parameters": {
+        "authentication": "genericCredentialType",
+        "httpMethod": "POST",
+        "url": "https://openrouter.ai/api/v1/chat/completions",
+        "jsonParameters": true,
+        "options": {},
+        "bodyParametersJson": "{\"model\": \"openai/gpt-3.5-turbo\", \"messages\": [{\"role\": \"system\", \"content\": \"Ты — ассистент по недвижимости.\", \"role\": \"user\", \"content\": \"{{ $json[\"question\"] }}\"}]}"
+      },
+      "name": "OpenRouter RAG",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [600, 300]
+    }
+  ],
+  "connections": {}
+}
